@@ -1,0 +1,103 @@
+<body>
+<div class="row text-center">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <h1 class="title">ROCK – PAPER – SCISSORS</h1>
+    <p class="description">Rock Paper Scissors is a zero sum game that is usually played by two people using their hands and no tools. The idea is to make shapes with an outstretched hand where each shape will have a certain degree of power and will lead to an outcome.</p>
+    <p class="select">SELECT YOUR BET</p>
+  </div>
+  <div class="col-4"></div>
+</div>
+
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <div class="row">
+      <div class="col-4">
+        <div class="card">
+          <a href="" data-controller="game" data-game-choice-value="0" data-action="click->game#addModal" class="text-decoration-none">
+            <div class="card-rock">
+            </div>
+            <h5 class="card-title">Rock</h5>
+          </a>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <a href="" data-controller="game" data-game-choice-value="1" data-action="click->game#addModal" class="text-decoration-none">
+            <div class="card-paper">
+            </div>
+            <h5 class="card-title">Paper</h5>
+          </a>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <a href="" data-controller="game" data-game-choice-value="2" data-action="click->game#addModal" class="text-decoration-none">
+            <div class="card-scissors">
+            </div>
+            <h5 class="card-title">Scissors</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4"></div>
+</div>
+</body>
+
+<div class="modal fade" id="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">WAITING CURB’S CHOOSE</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6" id="choice-output">
+          </div>
+          <div class="col-6 loader mt-5">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 your-bet">
+          Your bet
+        </div>
+        <div class="col-6 curb">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="output" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="output-title"></h5>
+      </div>
+      <div class="modal-body">
+        <div class="row align-content-center">
+          <div class="modal-description" id="output-description">
+          </div>
+          <div class="modal-image" id="output-image">
+          </div>
+          <button class="modal-button" onclick="exitModal()" id="output-button">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function exitModal() {
+        const modals = document.getElementsByClassName("modal");
+        for (let i = 0; i < modals.length; i++) {
+            modals[i].classList.remove("show");
+            modals[i].style.display = "none";
+        }
+
+        document.querySelectorAll(".modal-backdrop").forEach(el => el.remove());
+    }
+</script>
